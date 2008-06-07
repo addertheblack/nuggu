@@ -27,6 +27,8 @@
 
 package com.intelerad.tools.lib.concurrent;
 
+import java.util.concurrent.Callable;
+
 
 /**
  * Version of Callable which can be Cancelled.

@@ -27,6 +27,10 @@
 
 package com.intelerad.tools.lib.concurrent;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 
 
 /**
@@ -40,12 +44,12 @@ public class CallableUtilities
     private CallableUtilities() {}
     
     //////////////////// STATIC \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    private static SimpleThreadPool mSimpleThreadPool;
+    private static Executor mSimpleThreadPool;
     
     public static synchronized Executor getDefaultThreadCache()
     {
         if ( mSimpleThreadPool == null )
-            mSimpleThreadPool = new SimpleThreadPool( 5 );
+            mSimpleThreadPool =  Executors.newFixedThreadPool( 5 );
         return mSimpleThreadPool;
     }
     

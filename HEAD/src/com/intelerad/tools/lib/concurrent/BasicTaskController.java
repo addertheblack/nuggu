@@ -27,6 +27,9 @@
 
 package com.intelerad.tools.lib.concurrent;
 
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+
 
 public final class BasicTaskController implements TaskController
 {

@@ -27,6 +27,8 @@
 
 package com.intelerad.tools.lib.concurrent;
 
+import java.util.concurrent.Callable;
+
 /**
  * Executes a Callable then stores that function result. Unlike simply storing
  * the returned value, this object can store the exception as well and "play

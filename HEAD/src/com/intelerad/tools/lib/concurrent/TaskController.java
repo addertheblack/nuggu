@@ -27,6 +27,8 @@
 
 package com.intelerad.tools.lib.concurrent;
 
+import java.util.concurrent.ExecutionException;
+
 
 /**
  * This class is a version of Java 1.5's "Future" interface. It has most of the

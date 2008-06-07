@@ -27,6 +27,7 @@
 
 package com.intelerad.tools.lib.concurrent;
 
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Semaphore;
 
 /**
