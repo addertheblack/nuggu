@@ -27,39 +27,24 @@
 
 package com.intelerad.tools.lib.concurrent;
 
-/**
- * Taken from java 1.5.
- * 
- * Callable represents a computable result. In general you make callables
- * because you have a function that can return a result but don't want to
- * actually execute it because it takes too long to execute on the current
- * thread.
- * <p>
- * You build Callables to send to a CallableExecutor. CallableExecutors have a
- * method that looks like this:
- * 
- * <pre>
- * public TaskController execute( Callable toExecute, CallListener toNotify, Invoker toUseToNotify );
- * </pre>
- * 
- * Generally you will want to make your Callable cancellable so that it will
- * free resources (like the CPU or the network connections) as quickly as
- * possible when TaskController.cancel() is called. To do this use
- * CancellableCallable.
- * 
- * @see CancellableCallable
- * @see TaskController
- * @see CallableUtilities
- * @see CallListener
- * 
- */
-public interface Callable
+public class ConcurrencyLogManager 
 {
-    /**
-     * Call this method to start this Callable's Execution on the current thread.
-     * 
-     * @return an Object of any sort or null
-     * @throws Exception
-     */
-    public Object call() throws Exception;
+    private static Logger mDefaultLogger;
+    
+    public interface Logger
+    {
+        void printrace( String msg );
+
+        void printException(String string, Throwable illegalStateException);
+    }
+
+    public static synchronized void setDefault( Logger logger )
+    {
+        mDefaultLogger = logger;
+    }
+
+    static synchronized Logger getDefault() 
+    {
+        return mDefaultLogger;
+    }
 }
